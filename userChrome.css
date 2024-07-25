@@ -611,12 +611,6 @@ about:config -> svg.context-properties.content.enabled -> true*/
   margin-left: 2px !important;
 }
 
-/* Width of the tabs. Important to have Fadein or it breaks fonctionality */
-/* not([style^="max-width"] :not([overflow])*/
-#tabbrowser-tabs .tabbrowser-tab[fadein]:not([pinned]) {
-  max-width: var(--firefoxcss-tab-max-width) !important;
-  min-width: var(--firefoxcss-tab-min-width) !important;
-}
 
 /* Selected tabs width increase */
 #tabbrowser-tabs:not([overflow])
@@ -719,6 +713,8 @@ about:config -> svg.context-properties.content.enabled -> true*/
   margin-block: 2px !important;
 }
 
+
+
 /* Remove right and left side tab overflow border line */
 #scrollbutton-up ~ spacer {
   border-color: transparent !important;
@@ -759,8 +755,6 @@ about:config -> svg.context-properties.content.enabled -> true*/
 /*=====================================================================
 ============ W I N D O W   C O N T R O L   B U T T O N S ==============
 =====================================================================*/
-
-:root[sizemode="fullscreen"] #navigator-toolbox { position: relative; }
 
 @media (-moz-platform: windows) {
   /* ----- Close/min/max fix ----- */
