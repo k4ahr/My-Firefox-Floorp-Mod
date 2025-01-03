@@ -1,0 +1,4 @@
+/* Hide Tab Bar */
+#titlebar {
+  visibility: collapse !important;
+}

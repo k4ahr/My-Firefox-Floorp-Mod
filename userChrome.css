@@ -19,7 +19,8 @@
 @import url("no_search_engines_in_url_bar.css");
 @import url("spill-style-part1-file.css");
 @import url("white_github_icon_in_bookmarks.css");
-@import url("hide_list-all-tabs_button.css");
+@import url("only_show_list-all-tabs_when_tabs_overflowing.css");
+@import url("hide_tab_bar.css");
 @import url("bookmarks_bar_same_color_as_toolbar.css");
 @import url("min-max-close_buttons.css");
 @import url("acrylic_micaforeveryone.css");
@@ -29,7 +30,6 @@
 @import url("icons_in_main_menu.css");
 @import url("ublock-icon-change.css");
 @import url("selected_tabs_static_width.css");
-@import url("autohide_tab_and_bookmarks_bars.css");
 @import url("url_bar_no_border.css");
 @import url("search_bar_transparent_background.css");
 @import url("transparent_bookmarks_bar.css");
@@ -40,10 +40,8 @@
 @import url("reversed_tabs_bg_color.css");
 @import url("transparent_tabs_bg_color.css");
 @import url("tabs_separator.css");
-@import url("searchbox_text_align_left.css");
-@import url("tabs_take_full_bar_width.css");
-@import url("show_searchbar_dots_only_on_hover.css");
-@import url("thicker_control_buttons.css");
+
+
 
 /*=====================================================================
 ================= D A R K   T H E M E   C O L O R S ===================
@@ -752,220 +750,9 @@ about:config -> svg.context-properties.content.enabled -> true*/
   color: var(--firefoxcss-tab-speaker-icon-hover-color) !important;
 }
 
-/*=====================================================================
-============ W I N D O W   C O N T R O L   B U T T O N S ==============
-=====================================================================*/
 
-@media (-moz-platform: windows) {
-  /* ----- Close/min/max fix ----- */
-  #TabsToolbar .titlebar-buttonbox-container {
-    order: 1 !important;
-    padding-top: 3px !important;
-    padding-bottom: 3px !important;
-    padding-right: 3px !important;
-    padding-left: 3px !important;
-  }
 
-  .titlebar-buttonbox-container .titlebar-button > .toolbarbutton-icon {
-    height: 12px !important;
-    min-height: 12px !important;
-    width: 12px !important;
-    min-width: 12px !important;
-  }
 
-  .titlebar-buttonbox-container .titlebar-button {
-    border-radius: var(--toolbarbutton-border-radius);
-    padding: 10px !important;
-    padding-left: 10px !important;
-    padding-right: 10px !important;
-    margin-left: 0px !important;
-    margin-right: 0px !important;
-  }
-  
-  
-
- @media not (-moz-bool-pref: "firefoxcss.tabs.on.top.enable") {
-  #toolbar-menubar .titlebar-button {
-    padding-block: 0px !important;
-  }
-
-  #nav-bar-customization-target > :is(toolbarbutton, toolbaritem):first-child {
-    padding-inline-start: 2px !important;
-  }
-
-  #nav-bar {
-    padding-right: var(--firefoxcss-control-buttons-margin) !important;
-  }
-
-  #navigator-toolbox:not([inFullscreen])
-    #TabsToolbar
-    .titlebar-buttonbox-container {
-    visibility: visible !important;
-    display: flex !important;
-    position: absolute !important;
-    top: 1px;
-    right: 0;
-  }
-
-     
-  :root[sizemode="maximized"] .titlebar-buttonbox-container {
-    padding-top: 0px !important;
-  }
-
-  #navigator-toolbox[inFullscreen] #nav-bar {
-    padding-right: initial !important;
-  }
-
-  .titlebar-buttonbox-container .titlebar-min {
-    order: 0 !important;
-  }
-
-  .titlebar-buttonbox-container .titlebar-max,
-  .titlebar-restore {
-    order: 1 !important;
-  }
-
-  .titlebar-buttonbox-container .titlebar-close {
-    order: 2 !important;
-  }
-
-  @media only screen and (max-width: 670px) {
-    #navigator-toolbox:not([inFullscreen])
-      #TabsToolbar
-      .titlebar-buttonbox-container {
-      visibility: visible !important;
-      display: flex !important;
-      position: relative !important;
-      order: 1 !important;
-      padding-top: 1px !important;
-      padding-bottom: 1px !important;
-    }
-
-    #navigator-toolbox:not([inFullscreen]) #nav-bar {
-      padding-right: initial !important;
-    }
-  }
-  }
-}
-
-/*=====================================================================
-====================== C O N T E X T   M E N U ========================
-=====================================================================*/
-
-menupopup :-moz-any(menu, menuitem) {
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
-  padding-top: 4px !important;
-  padding-bottom: 4px !important;
-}
-
-@media (-moz-platform: windows) {
-  #context-navigation
-    > .menuitem-iconic[_moz-menuactive="true"]
-    > .menu-iconic-left
-    > .menu-iconic-icon {
-    border-radius: var(--toolbarbutton-border-radius) !important;
-    background-color: var(--button-hover-bgcolor) !important;
-  }
-
-  menupopup
-    > :-moz-any(
-      menu[_moz-menuactive="true"],
-      menuitem[_moz-menuactive="true"]
-    ) {
-    background-color: color-mix(
-      in srgb,
-      currentColor 9%,
-      transparent
-    ) !important;
-  }
-  #context-navigation > .menuitem-iconic[_moz-menuactive] {
-    &:not([disabled]) {
-      background-color: transparent !important;
-      
-    }
-    &[disabled] {
-      background-color: transparent !important;
-    }
-  }
-}
-
-menupopup :-moz-any(menu:first-child, menuitem:first-child) {
-  margin-top: 0px !important;
-}
-
-menupopup :-moz-any(menu:last-child, menuitem:last-child) {
-  margin-bottom: 0px !important;
-}
-
-/* ----- Menu Separator #context-sep-selectall ----- */
-menuseparator {
-  border-color: var(--arrowpanel-border-color) !important;
-  /* border-top: 1px solid ThreeDShadow; */
-  padding-block: 2px !important;
-}
-
-menuseparator#context-sep-navigation {
-  border-color: var(--arrowpanel-border-color) !important;
-}
-
-/* ----- Menu Colors -- border - rgba(82, 82, 94, 0.31) ----- */
-:not(#ContentSelectDropdown) > menupopup {
-  --panel-border-color: var(--arrowpanel-border-color) !important;
-  --panel-background: var(--firefoxcss-main-bg-color) !important;
-  --panel-padding: 5px 0 5px !important;
-  --panel-border-radius: 8px !important;
-}
-
-#context-navigation:not([hidden]) {
-  background-color: var(--firefoxcss-context-menu-top-color) !important;
-  padding: 1px 0px 1px !important;
-  border-top-left-radius: 8px !important;
-  border-top-right-radius: 8px !important;
-  margin-left: 0px !important;
-  margin-right: 0px !important;
-}
-
-menupopup#contentAreaContextMenu {
-  --panel-padding: unset !important;
-  --panel-padding: 0 0 5px !important;
-}
-
-menupopup
-  menuitem:is(#context-openlinkintab, #context-undo, #context-viewimage) {
-  margin-top: 5px !important;
-}
-
-#context-sep-navigation {
-  padding-block: 0px !important;
-}
-
-#context-navigation #context-back[disabled="true"] .menu-iconic-left .menu-iconic-icon{
-  opacity: 0.5 !important;
-}
-
-#context-navigation #context-forward[disabled="true"] .menu-iconic-left .menu-iconic-icon{
-  opacity: 0.5 !important;
-}
-
-#context-navigation > .menuitem-iconic {
-    & > .menu-iconic-left {
-      & > .menu-iconic-icon {
-         width: 42px !important;
-         height: 32px !important;
-      }
-    }
-  } 
-/*=====================================================================
-===================== B O O K M A R K S   B A R =======================
-=====================================================================*/
-
-/* Set bookmarks bar items padding */
-#PlacesToolbarItems > .bookmark-item {
-  padding-block: 6px !important;
-  padding-left: 6px !important;
-  padding-right: 6px !important;
-}
 
 /*=====================================================================
 =========================== B U T T O N S =============================
